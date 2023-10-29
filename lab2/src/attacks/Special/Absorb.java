@@ -11,7 +11,7 @@ public class Absorb extends SpecialMove {
     }
     @Override
     protected void applySelfDamage(Pokemon att, double dmg) {
-        att.setMod(Stat.HP, (int) -(power / 2));
+        att.setMod(Stat.HP, (int) -(dmg / 2));
     }
     @Override
     protected String describe() {
