@@ -155,6 +155,10 @@ echo -e "–– Step 4...\n"
 # -t - сортировать по уменьшению времени модификации
 # -S - сортировать по размеру (сначала большие файлы)
 # -R - рекурсивно отображать содержимое поддиректорий
+
+# Жёсткие и символьные ссылки
+# Жёсткая ссылка - это просто еще одно имя файла, которое ссылается на те же данные, что и первоначальное имя файла. Если удалить исходный файл, жёсткая ссылка всё равно будет работать, т.к. обращается к базовым данным, к которым обращалась реальная копия.
+# Символьная ссылка - особый тип файла. Содержит запись адреса другого файла. Если удалить или переместить исходный файл, ссылка перестанет работать, станет битой. Может ссылаться на файлы, находящиеся на других дисках и на директории.
  
 
 # 4.1
@@ -212,3 +216,33 @@ rm cherubi4/masquerain # выше уже удалили всю папку
 
 echo -e "–– Step 5 done\n"
 echo -e "–– Complete!\n"
+
+
+
+#echo -e "test!!!"
+
+# ниже попытки в 4.3 и немножко в 4.2. Вроде верное решение уже выше
+#grep -lr "m" $(ls -R)
+#(cat -b $(grep -lr '\<m' $(ls -R)) | sort) 2> /dev/null
+
+#touch /tmp/list
+#echo -e $(ls -1) > /tmp/list
+#echo -e $(ls -1 cherubi4 patrat4 purrloin1) > /tmp/list
+#cat /tmp/list
+#rm /tmp/list
+#ls -1 m* | ls cherubi4 -d m* | ls patrat4 -d m*
+
+#(touch /tmp/list; echo -e $(ls -1) > /tmp/list; echo -e $(ls -1 cherubi4 patrat4 purrloin1) > /tmp/list; cat /tmp/list; rm /tmp/list) 2> /dev/null
+
+#touch list
+#echo -e $(ls -1) > list
+#(echo -e $(ls -1 cherubi4 patrat4 purrloin1) > list) 2>/dev/null
+#cat $((grep -r "\<m" list 2>/dev/null) | sort) 2>/dev/null
+#rm list
+
+
+#cat $(grep -r "\<m" $(ls -1)) 2>/dev/null
+
+#(cat -n m*) && (cat -n patrat4/m*) && (cat -n cherubi4/m*) && (cat -n purrloin1/m*) 2>
+
+#ls -l m* */m* */*/m* */*/*/m*
