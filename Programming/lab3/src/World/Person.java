@@ -1,12 +1,12 @@
 package World;
 
 import Actions.Going;
-
 public class Person extends Character {
     private KnowledgeLvl kLvl = KnowledgeLvl.UNKNOWN;
     public Person(String name) {
         super(name);
     }
+    public StateOfTheDay state;
     @Override
     public void go(Going way) {
         System.out.print(getName());
@@ -24,8 +24,11 @@ public class Person extends Character {
             case LEAN_OVER_THE_RIVER:
                 System.out.println(" наклоняется над рекой");
                 break;
-            case COME_UP_TO_BRIDGE:
+            case STAND_ON_BRIDGE:
                 System.out.println(" встаёт на нижнюю перекладину перил моста");
+                break;
+            case COME_UP_TO_BRIDGE:
+                System.out.println(" подошёл к мосту");
                 break;
         }
     }
@@ -39,8 +42,10 @@ public class Person extends Character {
 //        System.out.println(getName() + " представляет, что если сегодня " + requirement + ", то " + result);
 //    }
     @Override
-    public void dream() {
+    public void dream(String func) {
         System.out.println(getName() + " воображает:");
+        System.out.println(func);
+        System.out.println("Наваждение прошло");
 //        if start_end.equals("начало наваждения") {
 //            System.out.println("В воображении " + getName());
 //        }
@@ -48,14 +53,26 @@ public class Person extends Character {
 //
 //        }
     }
+    @Override
+    public void see(River river) {
+        if (!river.chk()) {
+            System.out.println(getName() + " увидел своих друзей");
+        }
+    }
+
     public void chgLvl(KnowledgeLvl kLvl) {
         this.kLvl = kLvl;
         System.out.println(getName() + " теперь знает " + kLvl.getkLvl());
     }
-    public void giveLvl(Person person) {
-        KnowledgeLvl k = person.kLvl;
-        this.kLvl = k;
+    public void extractLvl(Person person) {
+        KnowledgeLvl Know = person.kLvl;
+        this.kLvl = Know;
         System.out.println(person.getName() + " передал персонажу " + getName() + " свои знания и теперь уровень знаний персонажа " + getName() + ": " + kLvl.getkLvl());
+    }
+
+    public void setState(StateOfTheDay state) {
+        this.state = state;
+        System.out.println(getName() + " понял, что сегодня день, когда " + state.getsDay());
     }
 }
 

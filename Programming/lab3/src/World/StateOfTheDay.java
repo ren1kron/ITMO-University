@@ -1,7 +1,7 @@
 package World;
 
 public enum StateOfTheDay {
-    INSPIRING(""),
+    INSPIRING("можно познавать мир"),
     WORKING("нужно что-то делать");
     private final String sDay;
 

@@ -1,9 +1,9 @@
 package World;
 
-import Actions.Imagine;
-import Actions.PhysicalAction;
+import Actions.Sapience;
+import Actions.PhysicalActivity;
 
-public abstract class Character implements PhysicalAction, Imagine {
+public abstract class Character implements PhysicalActivity, Sapience {
     private final String name;
     public Character(String name) {
         this.name = name;
