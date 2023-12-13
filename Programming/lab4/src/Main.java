@@ -55,7 +55,7 @@ public class Main {
         boy.dream(() -> {
             boy.toDo(PhysicalActivityType.STAND_ON_BRIDGE);
             boy.toDo(PhysicalActivityType.LEAN_OVER_THE_RIVER);
-            boy.chgLvl(KnowledgeLvl.All);
+            boy.chgLvl(KnowledgeLvl.All); // если закоментить эту строчку, то сработает exception
             bear.extractLvl(boy);
         });
 

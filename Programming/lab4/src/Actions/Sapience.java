@@ -14,4 +14,7 @@ public interface Sapience {
     void understand(String und);
     void tell(Func call);
     void explain(String thing, Person pers);
+    default void findOut(String sth) {
+        System.out.println("Вы обнаруживаете, что " + sth);
+    }
 }

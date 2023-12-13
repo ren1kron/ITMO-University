@@ -2,7 +2,8 @@ package World;
 
 import Actions.PhysicalActivityType;
 public class Person extends Character {
-    private KnowledgeLvl kLvl = KnowledgeLvl.UNKNOWN;
+//    private KnowledgeLvl kLvl = KnowledgeLvl.UNKNOWN;
+    private KnowledgeLvl kLvl = null;
     public Person(String name) {
         super(name);
     }
@@ -81,6 +82,7 @@ public class Person extends Character {
     public void thinking(String thoughts) {
         System.out.println(getName() + " подумал " + thoughts);
     }
+
     @Override
     public void dream(Func func) {
         System.out.println("–––" + getName() + " воображает:");
@@ -99,8 +101,13 @@ public class Person extends Character {
         System.out.println(getName() + " теперь знает " + kLvl.getKLvl());
     }
     public void extractLvl(Person person) {
-        this.kLvl = person.kLvl;
-        System.out.println(person.getName() + " передал персонажу " + getName() + " свои знания и теперь уровень знаний персонажа " + getName() + ": " + kLvl.getKLvl());
+        try {
+            this.kLvl = person.kLvl;
+            System.out.println(person.getName() + " передал персонажу " + getName() + " свои знания и теперь уровень знаний персонажа " + getName() + ": " + kLvl.getKLvl());
+        } catch (NullPointerException npe) { // unchecked (runtimeException)
+            System.out.println(person.getName() + " ничего не понимает и попытался что-то объяснить персонажу " +
+                    getName() + " и теперь они вдвоём ничего не понимают");
+        }
     }
 
     public void setState(StateOfTheDay state) {
