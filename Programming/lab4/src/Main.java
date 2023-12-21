@@ -28,7 +28,7 @@ public class Main {
 
         Sound crackle = () -> System.out.println("*раздался треск*");
 
-        River river = new River();
+        Location river = new Location();
         river.addPers(donkey);
         river.addPers(tiger);
         river.addPers(boy);
@@ -65,6 +65,8 @@ public class Main {
 
 //        Так они и сделали
         they.toDo("именно это");
+        Location.Event game = river.new Event("Игра в \"Пустяки\"");
+        game.startEvent();
         donkey.win();
         ru.toDo(PhysicalActivityType.FALL_IN_RIVER_ACCIDENTALY);
         kenga.toDo(PhysicalActivityType.OUT_OF_FOREST);

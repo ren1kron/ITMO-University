@@ -13,7 +13,7 @@ public class Person extends Character {
         System.out.print(getName());
         switch (way) {
             case ON_PATH_IN_GOOD_MOOD:
-                System.out.println(" идёт по лесной дорожке в солнечном и безоблачном настроении, думая, что дважды девятнадцать – это пустяки.");
+                System.out.println(" идёт по лесной дорожке в солнечном и безоблачном настроении"); //, думая, что дважды девятнадцать – это пустяки.");;
                 break;
             case OUT_OF_REEDS:
                 System.out.println(" появился из камышей");
@@ -90,8 +90,8 @@ public class Person extends Character {
         System.out.println("–––"+ getName() + " закончил воображать\n");
     }
     @Override
-    public void see(River river) {
-        if (!river.chk()) {
+    public void see(Location location) {
+        if (!location.chk()) {
             System.out.println(getName() + " увидел своих друзей");
         }
     }
@@ -108,6 +108,9 @@ public class Person extends Character {
             System.out.println(person.getName() + " ничего не понимает и попытался что-то объяснить персонажу " +
                     getName() + " и теперь они вдвоём ничего не понимают");
         }
+    }
+    public void takingComfort() {
+        System.out.println(getName() + " немного утешился");
     }
 
     public void setState(StateOfTheDay state) {

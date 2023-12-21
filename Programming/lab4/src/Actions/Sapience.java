@@ -2,13 +2,13 @@ package Actions;
 
 import World.Func;
 import World.Person;
-import World.River;
+import World.Location;
 import World.StateOfTheDay;
 
 public interface Sapience {
     void thinking(String thoughts);
     void dream(Func func);
-    void see(River river);
+    void see(Location location);
     void setState(StateOfTheDay state);
     void answer(String answer);
     void understand(String und);

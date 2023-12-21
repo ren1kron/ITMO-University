@@ -1,10 +1,10 @@
 package World;
 
-import World.Characters.Pooh;
+//import World.Characters.Pooh;
 import World.Characters.Pooh.Head;
 
 public class Narrator {
-//    Head head = new Pooh.Head();
+//    Pooh.Head head = Pooh.new Head();
 
     public static void suggesting() {
 //        System.out.print("Рассказчик отмечает, что если Вы – ");

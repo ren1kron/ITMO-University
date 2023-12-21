@@ -6,9 +6,7 @@ public class Pooh extends Person {
     public Pooh(String name) {
         super(name);
     }
-    public void takingComfort() {
-        System.out.println(getName() + " немного утешился");
-    }
+    
 //    public String headContent() {
 //        return ""
 //    }
