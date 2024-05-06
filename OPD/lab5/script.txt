@@ -1,0 +1,35 @@
+org 0x32D
+str: word 0x0563
+pointer: word ?
+stop_sym: word 0x000D
+
+start: cla
+ld str
+st pointer 
+
+s1: in 3
+and #0x40
+beq s1
+ld (str)
+out 2
+sxtb
+cmp stop_sym
+beq phlt
+
+s2: in 3
+and #0x40
+beq s2
+ld (str)+
+swab
+out 2
+sxtb
+cmp stop_sym
+beq phlt
+jump s1
+
+
+phlt: hlt
+org 0x563
+word 0xE1F0 ; ПА
+word 0xF4F2 ; РТ
+word 0x0DE1 ; А NL
